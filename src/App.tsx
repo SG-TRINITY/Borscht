@@ -76,13 +76,14 @@ export default function App() {
       <div className="app-shell">
         <header className="topbar">
           <div className="brand">
-            <div className="brand-mark" aria-hidden>
-              <span className="brand-dot" />
-            </div>
-            <div>
-              <div className="brand-name">BORSCHT</div>
-              <div className="brand-sub">by Cult of Soup</div>
-            </div>
+            <img
+              className="brand-logo"
+              src="/logo_borscht.svg"
+              alt="Borscht"
+              width={186}
+              height={40}
+              decoding="async"
+            />
           </div>
           <nav className="topnav" aria-label="Primary">
             <a className="topnav-link is-active" href="#pot">

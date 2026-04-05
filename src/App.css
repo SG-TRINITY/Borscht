@@ -33,38 +33,16 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  flex-shrink: 0;
   -webkit-user-select: none;
   user-select: none;
 }
 
-.brand-mark {
-  width: 22px;
-  height: 22px;
-  border: 2px solid rgba(204, 0, 0, 0.55);
-  position: relative;
-}
-
-.brand-dot {
-  position: absolute;
-  inset: 6px;
-  background: var(--red);
-}
-
-.brand-name {
-  font-family: var(--font-head);
-  letter-spacing: 0.12em;
-  font-weight: 700;
-  font-size: 16px;
-  text-transform: uppercase;
-}
-
-.brand-sub {
-  margin-top: 2px;
-  font-size: 10px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+.brand-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: min(186px, 55vw);
 }
 
 .topnav {
