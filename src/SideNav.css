@@ -57,7 +57,7 @@
 }
 
 .sidenav-link.is-active {
-  background: var(--red-deep);
+  background: var(--red);
   color: #fff;
 }
 
@@ -120,7 +120,7 @@
   position: absolute;
   inset: 0;
   width: 88%;
-  background: var(--red-deep);
+  background: var(--red);
 }
 
 @media (max-width: 860px) {
