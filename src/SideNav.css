@@ -1,0 +1,152 @@
+.sidenav {
+  width: 240px;
+  flex: 0 0 240px;
+  border-right: 2px solid var(--red);
+  padding: 18px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sidenav-status {
+  padding: 10px 10px 16px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidenav-status-title {
+  font-family: var(--font-head);
+  color: var(--red);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+
+.sidenav-status-sub {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.sidenav-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidenav-link {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  padding: 10px 10px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.78);
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidenav-link:hover {
+  background: rgba(204, 0, 0, 0.12);
+}
+
+.sidenav-link.is-active {
+  background: var(--red-deep);
+  color: #fff;
+}
+
+.sidenav-link:focus-visible {
+  outline: 2px solid rgba(204, 0, 0, 0.75);
+  outline-offset: 2px;
+}
+
+.sidenav-icon {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+}
+
+.sidenav-icon img {
+  display: block;
+}
+
+.sidenav-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sidenav-footer {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.sidenav-footer-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.sidenav-footer-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.sidenav-footer-value {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sidenav-footer-bar {
+  position: relative;
+  height: 6px;
+  background: #111;
+  overflow: hidden;
+}
+
+.sidenav-footer-bar-fill {
+  position: absolute;
+  inset: 0;
+  width: 88%;
+  background: var(--red-deep);
+}
+
+@media (max-width: 860px) {
+  .sidenav {
+    width: 210px;
+    flex-basis: 210px;
+  }
+}
+
+@media (max-width: 720px) {
+  .sidenav {
+    width: 76px;
+    flex-basis: 76px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .sidenav-status,
+  .sidenav-label {
+    display: none;
+  }
+
+  .sidenav-link {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 12px 8px;
+  }
+}
+

@@ -1,3 +1,16 @@
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  top: var(--topbar-h);
+  pointer-events: none;
+  background-color: #0b0b0b;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: 0 0;
+  opacity: 0.8;
+  z-index: 0;
+}
+
 .bg-scanlines {
   position: fixed;
   inset: 0;
@@ -10,75 +23,34 @@
     transparent 3px
   );
   opacity: 0.85;
-  z-index: 0;
+  z-index: 1;
 }
 
 .app-shell {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* --- Top bar --- */
-.topbar {
+.app-body {
+  flex: 1;
+  min-height: 0;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 28px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.brand {
+.app-content {
+  flex: 1;
+  min-width: 0;
   display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-.brand-logo {
-  display: block;
-  height: 40px;
-  width: auto;
-  max-width: min(186px, 55vw);
-}
-
-.topnav {
-  display: flex;
-  align-items: center;
-  gap: 26px;
-}
-
-.topnav-link {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  cursor: default;
-}
-
-.topnav-link:hover {
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.topnav-link.is-active {
-  color: var(--red);
-  border-bottom: 2px solid #ffffff;
-  padding-bottom: 2px;
-}
-
-.topbar-right .status-glyph {
-  width: 16px;
-  height: 16px;
-  border: 2px solid var(--red);
+  flex-direction: column;
+  background: transparent;
 }
 
 /* --- Main --- */
 .main {
-  width: min(960px, calc(100% - 56px));
+  width: min(980px, calc(100% - 56px));
   margin: 0 auto;
   padding: 22px 0 48px;
   flex: 1;
@@ -127,10 +99,13 @@
 
 .upload-outer {
   --corner: 14px;
+  --edge: 10px;
   position: relative;
-  background: var(--black);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 42%),
+    radial-gradient(1200px 240px at 50% 0%, rgba(204, 0, 0, 0.06), transparent 60%),
+    var(--black);
   border: 4px solid var(--red);
-  padding: 28px 24px;
+  padding: 30px 26px;
   cursor: pointer;
   outline: none;
   border-radius: 0;
@@ -145,34 +120,66 @@
   width: var(--corner);
   height: var(--corner);
   background: var(--red);
-  z-index: 2;
+  z-index: 3;
 }
 
 .corner-tl {
-  top: -4px;
-  left: -4px;
+  top: -8px;
+  left: -8px;
 }
 
 .corner-tr {
-  top: -4px;
-  right: -4px;
+  top: -8px;
+  right: -8px;
 }
 
 .corner-bl {
-  bottom: -4px;
-  left: -4px;
+  bottom: -8px;
+  left: -8px;
 }
 
 .corner-br {
+  bottom: -8px;
+  right: -8px;
+}
+
+.edge-square {
+  position: absolute;
+  width: var(--edge);
+  height: var(--edge);
+  background: var(--red);
+  z-index: 3;
+}
+
+.edge-top {
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.edge-bottom {
   bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.edge-left {
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.edge-right {
   right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .upload-inner {
-  border: 1px dashed rgba(255, 255, 255, 0.28);
-  padding: 56px 20px 48px;
+  border: 2px dashed rgba(255, 255, 255, 0.22);
+  padding: 58px 20px 52px;
   text-align: center;
-  background: var(--black);
+  background: rgba(0, 0, 0, 0.55);
   border-radius: 0;
 }
 
@@ -464,10 +471,6 @@
 }
 
 @media (max-width: 900px) {
-  .topnav {
-    display: none;
-  }
-
   .bottom {
     grid-template-columns: 1fr;
   }
@@ -479,4 +482,35 @@
   .btn {
     max-width: none;
   }
+}
+
+/* --- Placeholder pages --- */
+.placeholder {
+  margin-top: 34px;
+  background: rgba(43, 43, 43, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 32px 22px;
+}
+
+.placeholder-kicker {
+  color: var(--red);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.placeholder-title {
+  font-family: var(--font-head);
+  font-size: 28px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.placeholder-sub {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }

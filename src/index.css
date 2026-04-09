@@ -7,6 +7,7 @@
   --muted: rgba(255, 255, 255, 0.55);
   --font-head: "Oswald", "Arial Black", Impact, system-ui, sans-serif;
   --font-mono: "Share Tech Mono", ui-monospace, monospace;
+  --topbar-h: 72px;
 }
 
 *,

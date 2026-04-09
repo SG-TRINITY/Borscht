@@ -1,0 +1,36 @@
+/* Top header */
+
+.topbar {
+  height: var(--topbar-h);
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--red);
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.topbar-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: min(186px, 55vw);
+}
+
+.topbar-right {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+}
+
+.topbar-terminal {
+  display: block;
+}
+
