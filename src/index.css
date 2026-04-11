@@ -5,8 +5,10 @@
   --red-deep: #690000;
   --text: #ffffff;
   --muted: rgba(255, 255, 255, 0.55);
-  --font-head: "Oswald", "Arial Black", Impact, system-ui, sans-serif;
-  --font-mono: "Share Tech Mono", ui-monospace, monospace;
+  --font-body: "Barlow Condensed", sans-serif;
+  --font-body-open: "Barlow", sans-serif; 
+  --font-head: "Space Grotesk", "Arial Black", Impact, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Share Tech Mono", ui-monospace, monospace;
   --topbar-h: 72px;
 }
 
