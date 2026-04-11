@@ -1,14 +1,27 @@
 :root {
   --black: #000000;
-  --panel: #2b2b2b;
+  --off-black: #0E0E0E;
+  --panel: #353534;
+  --panel-dark: #131313;
+  --panel-mid: #454747;
+  --border: #C6C6C7;
+  --surface: #E5E2E1;
+  --light: #F5F5F5;
+  --white: #FFFFFF;
   --red: #8B0000;
   --red-deep: #690000;
-  --text: #ffffff;
+
+  --border-dim: rgba(53, 53, 52, 0.20);   
+  --surface-dim: rgba(229, 226, 225, 0.30); 
+
+  --text: #FFFFFF;
   --muted: rgba(255, 255, 255, 0.55);
+
+  --font-head: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Barlow Condensed", sans-serif;
-  --font-body-open: "Barlow", sans-serif; 
-  --font-head: "Space Grotesk", "Arial Black", Impact, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", "Share Tech Mono", ui-monospace, monospace;
+  --font-body-open: "Barlow", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
   --topbar-h: 72px;
 }
 
