@@ -3,7 +3,7 @@
   inset: 0;
   top: var(--topbar-h);
   pointer-events: none;
-  background-color: #0b0b0b;
+  background-color: var(--off-black);
   background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 22px 22px;
   background-position: 0 0;
