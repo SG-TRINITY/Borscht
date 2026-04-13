@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import "./App.css";
+import Footer from "./Footer";
 import Header from "./Header";
 import SideNav, { type NavId } from "./SideNav";
 
@@ -224,11 +225,7 @@ export default function App() {
             )}
             </main>
 
-            <footer className="footer">
-              <div className="footer-text">
-                BORSCHT SYSTEM V0.0.5 // (C) 1984 CULT_OF_SOUP // ALL RIGHTS VOID
-              </div>
-            </footer>
+            <Footer />
           </div>
         </div>
       </div>

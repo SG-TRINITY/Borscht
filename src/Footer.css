@@ -1,0 +1,14 @@
+.footer {
+  padding: 28px 16px 24px;
+  text-align: center;
+  border-top: 1px solid var(--red);
+  background-color: var(--black);
+}
+
+.footer-text {
+  color: var(--muted);
+  font-size: 10px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}

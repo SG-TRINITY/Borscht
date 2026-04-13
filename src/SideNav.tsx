@@ -42,14 +42,28 @@ export default function SideNav(props: {
         })}
       </nav>
 
-      <section className="sidenav-footer" aria-label="CPU load">
-        <header className="sidenav-footer-head">
-          <div className="sidenav-footer-label">CPU LOAD</div>
-          <div className="sidenav-footer-value">88%</div>
-        </header>
+      <section className="sidenav-footer" aria-label="System stats">
+        <div className="sidenav-stat-row">
+          <span className="sidenav-stat-label">MODULE_UPTIME</span>
+          <span className="sidenav-stat-value sidenav-stat-value--red">122:14:09</span>
+        </div>
+
+        <div className="sidenav-stat-row sidenav-stat-row--cpu">
+          <span className="sidenav-stat-label sidenav-stat-label--red">CPU_LOAD_STR</span>
+          <span className="sidenav-stat-value">88.4%</span>
+        </div>
         <div className="sidenav-footer-bar">
           <div className="sidenav-footer-bar-fill" />
         </div>
+
+        <div className="sidenav-divider" />
+
+        <div className="sidenav-logs-label">SYSTEM_LOGS:</div>
+        <ul className="sidenav-logs">
+          <li>&gt; INTAKE_VALVE_OPEN</li>
+          <li>&gt; PRESSURE_STABLE_0.8</li>
+          <li>&gt; FERMENTATION_INIT...</li>
+        </ul>
       </section>
     </aside>
   );
