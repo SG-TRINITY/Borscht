@@ -11,7 +11,7 @@ Borscht lets you:
 - **Feed the Pot** — Pick a PDF or image (résumé, cover letter, or similar); the app shows file name and size and updates intake status text.
 - **Dial the heat** — A roast slider maps to pepper-themed tiers (Bell Pepper → Pure Capsaicin) so “how mean should this be?” is a first-class control.
 - **Run the pipeline (demo)** — Primary actions update local state and status strings; there is no server upload or model call yet.
-- **Read the Taste Test** — A dedicated view streams a mock analysis log (timestamps, severity tags, cringe detection lines) with clear buffer and export-style affordances.
+- **Have a Taste Test** — A dedicated view streams a mock analysis log (timestamps, severity tags, cringe detection lines) with clear buffer and export-style affordances.
 - **Move through the kitchen** — Side nav includes **The Pot**, **Taste Test**, **The Kitchen**, and **Settings** as surfaces you can extend (history, batch tools, preferences).
 
 It is built with **Vite**, **React 19**, and **TypeScript**: a single-page app with component-scoped CSS (`App.tsx`, `TasteTest.tsx`, `SideNav.tsx`, etc.) so the layout stays consistent and easy to extend.
