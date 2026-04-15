@@ -55,15 +55,15 @@ There is no linked Figma file in this repo. The visual system lives in `src/App.
 
 Roast index, selected file, upload status, and active nav are React state only—swap in API calls or a backend when you are ready.
 
-## Roadmap / ideas
+## Future implementation
 
-If time allows:
+Rough order: finish empty nav areas in the UI, then add real services and hook those screens up to data.
 
-- Wire uploads to a backend and run real analysis (structure, tone, clichés, gaps) with optional persistence.
-- **The Kitchen** / **Settings**: history of runs, user preferences, API keys or privacy toggles.
-- Ephemeral or local-first processing options aligned with the sovereignty messaging in the UI.
-- Replace mock Taste Test lines with streamed model output.
-- Auth and per-user libraries if the product goes multi-tenant.
+1. **The Kitchen & Settings (frontend)** — Flesh out both nav views in React: layout, copy, empty states, and controls you know you will need (e.g. history list shell, settings sections). Use mock or local-only data until the API exists.
+2. **Backend** — API for uploads (validate, store or pass-through), optional auth, and persistence so runs are not trapped in the browser tab.
+3. **AI** — Call a model (or worker) with the roast tier, return structured or streamed findings; replace the mock Taste Test log with live output and errors that map to the same UI.
+4. **Wire Kitchen & Settings** — Connect **The Kitchen** to real history (past documents or runs, reopen a verdict, maybe re-run at a new heat level) and **Settings** to saved preferences (defaults, privacy or processing mode, bring-your-own-key or org config if you add it).
+5. **Hardening** — Rate limits, quotas, local-first or ephemeral modes where it fits the product story, and multi-tenant libraries if you outgrow a single shared account.
 
 ---
 
