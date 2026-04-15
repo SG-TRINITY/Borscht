@@ -69,7 +69,7 @@ Get this bad boy up so that we don't have any more db issues between the three o
 
 We love Borscht.
 
-© 2026 Cult. of the Beet*
+© 2026 Cult. of the Soup*
 
 *Cult. is abbreviation for Culture
 
