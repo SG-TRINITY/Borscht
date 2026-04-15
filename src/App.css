@@ -335,31 +335,28 @@
 }
 
 .roast-labels {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: 6px;
   margin-top: 12px;
   padding: 0 2px;
 }
 
 .roast-label {
-  font-size: 10px;
-  letter-spacing: 0.14em;
+  font-family: var(--font-head);
+  font-size: clamp(8px, 1.85vw, 10px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--muted);
-  flex: 1;
+  color: rgba(255, 255, 255, 0.38);
   text-align: center;
-}
-
-.roast-label:first-child {
-  text-align: left;
-}
-
-.roast-label:last-child {
-  text-align: right;
+  min-width: 0;
+  padding-inline: 2px;
+  line-height: 1.25;
 }
 
 .roast-label.is-active {
-  color: #fff;
+  color: var(--white);
 }
 
 .roast-label.is-active.is-atomic {
@@ -445,7 +442,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  background: var(--red);
 }
 
 .panel-title {
@@ -459,9 +456,11 @@
 }
 
 .panel-icon {
-  width: 10px;
-  height: 10px;
-  border: 2px solid var(--red);
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 .panel-text {

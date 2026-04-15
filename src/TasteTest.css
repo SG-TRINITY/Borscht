@@ -1,0 +1,336 @@
+/* --- Taste Test (results / roast output) — reference layout --- */
+.taste-page {
+  margin-top: 8px;
+}
+
+.taste-hero-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.taste-hero-text {
+  min-width: 0;
+}
+
+.taste-title {
+  font-family: var(--font-head);
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 0.98;
+}
+
+.taste-title-part {
+  display: inline;
+}
+
+.taste-title-part--white {
+  color: #fff;
+}
+
+.taste-title-part--red {
+  color: var(--red);
+}
+
+.taste-sub {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.taste-hero-rule {
+  height: 2px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 22px;
+  background: var(--red);
+  box-shadow: 0 0 16px rgba(139, 0, 0, 0.45);
+}
+
+.taste-export {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 18px;
+  background: #f0f0f0;
+  color: #000;
+  border: 1px solid var(--red);
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.taste-export:hover {
+  filter: brightness(1.03);
+  box-shadow: 0 0 0 1px var(--red), 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.taste-export:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
+
+.taste-export-icon {
+  display: block;
+  color: #000;
+}
+
+.taste-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.taste-metric-panel {
+  background: rgba(43, 43, 43, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.taste-score-block {
+  text-align: center;
+  padding: 22px 14px 24px;
+  border: 3px solid var(--red);
+  background: rgba(0, 0, 0, 0.55);
+  box-shadow: inset 0 0 40px rgba(139, 0, 0, 0.12);
+}
+
+.taste-score-value {
+  font-family: var(--font-head);
+  font-size: clamp(56px, 11vw, 96px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--red);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 28px rgba(139, 0, 0, 0.35);
+}
+
+.taste-score-label {
+  margin-top: 12px;
+  font-family: var(--font-head);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.taste-severity-block {
+  margin-top: 2px;
+}
+
+.taste-severity-head {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 10px;
+}
+
+.taste-severity-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.taste-severity-track {
+  flex: 1;
+  display: flex;
+  height: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.taste-severity-fill {
+  width: 82%;
+  flex-shrink: 0;
+  background: linear-gradient(90deg, var(--red-deep), var(--red));
+  box-shadow: 0 0 14px rgba(139, 0, 0, 0.5);
+}
+
+.taste-severity-remainder {
+  flex: 1;
+  min-width: 12%;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.taste-severity-tag {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  flex-shrink: 0;
+}
+
+.taste-advisory {
+  padding: 14px 14px 16px;
+  border: 2px solid var(--red);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.taste-advisory-body {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.55;
+  color: #a02e2e;
+}
+
+.taste-advisory-lead {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-right: 4px;
+}
+
+.taste-log-panel {
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+}
+
+.taste-log-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px;
+  background: var(--red);
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.taste-log-filename {
+  letter-spacing: 0.14em;
+}
+
+.taste-log-meta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  flex-shrink: 0;
+}
+
+.taste-log-body {
+  flex: 1;
+  margin: 0;
+  padding: 16px 14px 18px;
+  overflow: auto;
+  max-height: min(52vh, 440px);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.taste-log-body--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.taste-log-line {
+  margin-bottom: 12px;
+}
+
+.taste-log-line:last-child {
+  margin-bottom: 0;
+}
+
+.taste-log-ts {
+  color: rgba(255, 255, 255, 0.38);
+  margin-right: 6px;
+}
+
+.taste-log-id {
+  color: rgba(255, 255, 255, 0.45);
+  margin-right: 8px;
+}
+
+.taste-log-pill {
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: 2px;
+  padding: 2px 6px;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--red);
+}
+
+.taste-log-detail {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.taste-log-detail--solo {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.taste-actions {
+  margin-top: 22px;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.taste-actions .btn {
+  flex: 1;
+  min-width: 200px;
+  max-width: 320px;
+}
+
+.taste-bottom {
+  margin-top: 36px;
+}
+
+@media (max-width: 820px) {
+  .taste-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .taste-actions {
+    flex-direction: column;
+  }
+
+  .taste-actions .btn {
+    max-width: none;
+  }
+}

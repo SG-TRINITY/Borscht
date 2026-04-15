@@ -1,8 +1,7 @@
 .sidenav {
   width: 240px;
   flex: 0 0 240px;
-  border-right: 2px solid var(--red);
-  padding: 18px 14px 14px;
+  padding: 18px 0 14px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -11,11 +10,12 @@
   height: calc(100vh - var(--topbar-h));
   overflow-y: auto;
   background-color: var(--black);
+  border-right: 2px solid var(--red);
 }
 
 .sidenav-status {
-  padding: 10px 10px 16px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 14px 10px;
+
 }
 
 .sidenav-status-title {
@@ -34,13 +34,13 @@
   font-family: var(--font-mono);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--muted);
 }
 
 .sidenav-nav {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0;
 }
 
 .sidenav-link {
@@ -49,17 +49,22 @@
   gap: 10px;
   align-items: center;
   width: 100%;
-  padding: 10px 10px;
+  padding: 10px 14px;
   border: 0;
   border-radius: 0;
+  border-bottom: 1px solid var(--surface-dim);
   background: transparent;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--text);
   cursor: pointer;
   text-align: left;
 }
 
+.sidenav-link:first-child {
+  border-top: 1px solid var(--surface-dim);
+}
+
 .sidenav-link:hover {
-  background: rgba(204, 0, 0, 0.12);
+  background: var(--red-hover);
 }
 
 .sidenav-link.is-active {
@@ -68,7 +73,7 @@
 }
 
 .sidenav-link:focus-visible {
-  outline: 2px solid rgba(204, 0, 0, 0.75);
+  outline: 2px solid var(--red);
   outline-offset: 2px;
 }
 
@@ -91,13 +96,10 @@
 
 .sidenav-footer {
   margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
   display: flex;
   flex-direction: column;
   gap: 4px;
   background-color: var(--off-black);
-  margin-left: -14px;          /* ADD - bleed out to sidenav edges */
-  margin-right: -14px;
   padding: 14px 14px 10px;
 }
 
@@ -111,7 +113,7 @@
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--muted);
 }
 
 .sidenav-stat-label--red {
@@ -131,7 +133,7 @@
 .sidenav-footer-bar {
   position: relative;
   height: 6px;
-  background: #111;
+  background: var(--off-black);
   overflow: hidden;
   margin-top: 6px;
 }
@@ -143,17 +145,12 @@
   background: var(--red);
 }
 
-.sidenav-divider {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.12);
-  margin: 14px 0 10px;
-}
-
 .sidenav-logs-label {
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--red);
+  margin-top: 14px;
   margin-bottom: 6px;
 }
 
@@ -169,7 +166,7 @@
 .sidenav-logs li {
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--muted);
   text-transform: uppercase;
 }
 
@@ -188,8 +185,8 @@
   .sidenav {
     width: 76px;
     flex-basis: 76px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .sidenav-status,

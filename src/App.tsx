@@ -1,12 +1,33 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
 import Footer from "./Footer";
 import Header from "./Header";
 import SideNav, { type NavId } from "./SideNav";
+import TasteTest from "./TasteTest";
 
-const ROAST_LABELS = ["MILD", "BITTER", "FERMENTED", "ATOMIC"] as const;
-const ROAST_DISPLAY = ["02", "05", "07", "11"] as const;
-const ROAST_MAX = ROAST_LABELS.length - 1;
+/** Slider has 10 stops (0–9). Five anchor labels map to heat tiers (mildest → hottest). */
+const ROAST_ANCHOR_LABELS = [
+  "Bell Pepper",
+  "Habanero",
+  "Ghost Pepper",
+  "Carolina Reaper",
+  "Pure Capsaicin",
+] as const;
+const ROAST_TIER_COUNT = ROAST_ANCHOR_LABELS.length;
+/** Inclusive max index; `max` on range input = 9 → ten positions. */
+const ROAST_MAX = 9;
+
+function roastTierIndex(index: number): number {
+  return Math.min(
+    Math.floor((index * ROAST_TIER_COUNT) / (ROAST_MAX + 1)),
+    ROAST_TIER_COUNT - 1,
+  );
+}
+
+/** Watermark readout 01–10, one per slider stop. */
+function roastDisplayNumber(index: number): string {
+  return String(index + 1).padStart(2, "0");
+}
 
 function formatBytes(bytes: number): string {
   const units = ["B", "KB", "MB", "GB"] as const;
@@ -25,10 +46,18 @@ export default function App() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadStatus, setUploadStatus] = useState("");
-  const [roastIndex, setRoastIndex] = useState(2);
+  const [roastIndex, setRoastIndex] = useState(7);
   const [activeNav, setActiveNav] = useState<NavId>("pot");
+  const [tasteLogCleared, setTasteLogCleared] = useState(false);
 
-  const displayNumber = ROAST_DISPLAY[roastIndex] ?? "07";
+  useEffect(() => {
+    if (activeNav === "taste") {
+      setTasteLogCleared(false);
+    }
+  }, [activeNav]);
+
+  const displayNumber = roastDisplayNumber(roastIndex);
+  const activeTier = roastTierIndex(roastIndex);
   const openPicker = useCallback(() => {
     fileInputRef.current?.click();
   }, []);
@@ -56,7 +85,7 @@ export default function App() {
     setSelectedFile(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
     setUploadStatus("BUFFER CLEARED.");
-    setRoastIndex(2);
+    setRoastIndex(7);
   };
 
   return (
@@ -143,19 +172,19 @@ export default function App() {
                         max={ROAST_MAX}
                         step={1}
                         value={roastIndex}
-                        aria-valuetext={`${ROAST_LABELS[roastIndex]}, module readout ${displayNumber}`}
+                        aria-valuetext={`${ROAST_ANCHOR_LABELS[activeTier]}, module readout ${displayNumber}`}
                         onChange={(e) => {
                           setRoastIndex(Number(e.target.value));
                         }}
                       />
                       <div className="roast-labels">
-                        {ROAST_LABELS.map((label, i) => (
+                        {ROAST_ANCHOR_LABELS.map((label, i) => (
                           <span
                             key={label}
                             className={[
                               "roast-label",
-                              i === roastIndex ? "is-active" : "",
-                              i === roastIndex && label === "ATOMIC" ? "is-atomic" : "",
+                              i === activeTier ? "is-active" : "",
+                              i === activeTier && i === ROAST_TIER_COUNT - 1 ? "is-atomic" : "",
                             ]
                               .filter(Boolean)
                               .join(" ")}
@@ -181,7 +210,7 @@ export default function App() {
                   <article className="panel">
                     <div className="panel-topline" aria-hidden />
                     <div className="panel-title">
-                      <span className="panel-icon" aria-hidden />
+                      <img className="panel-icon" src="/stats.svg" alt="" width={18} height={18} />
                       SYSTEM LOAD
                     </div>
                     <div className="panel-text">
@@ -191,7 +220,7 @@ export default function App() {
                   <article className="panel">
                     <div className="panel-topline" aria-hidden />
                     <div className="panel-title">
-                      <span className="panel-icon" aria-hidden />
+                      <img className="panel-icon" src="/shield.svg" alt="" width={18} height={18} />
                       SOVEREIGNTY
                     </div>
                     <div className="panel-text">
@@ -201,8 +230,8 @@ export default function App() {
                   <article className="panel">
                     <div className="panel-topline" aria-hidden />
                     <div className="panel-title">
-                      <span className="panel-icon" aria-hidden />
-                      CRINGE LOGS
+                      <img className="panel-icon" src="/repeat.svg" alt="" width={18} height={18} />
+                      TASTE LOGS
                     </div>
                     <div className="panel-text">
                       Last judgment: 14.02.1984. Result: UNRECOVERABLE. Severity: NUCLEAR.
@@ -210,15 +239,17 @@ export default function App() {
                   </article>
                 </section>
               </>
+            ) : activeNav === "taste" ? (
+              <TasteTest
+                logCleared={tasteLogCleared}
+                onClearBuffer={() => setTasteLogCleared(true)}
+                onReinitiateScan={() => setActiveNav("pot")}
+              />
             ) : (
               <section className="placeholder">
                 <div className="placeholder-kicker">MODULE</div>
                 <div className="placeholder-title">
-                  {activeNav === "cringe"
-                    ? "CRINGE INDEX"
-                    : activeNav === "kitchen"
-                      ? "THE KITCHEN"
-                      : "SETTINGS"}
+                  {activeNav === "kitchen" ? "THE KITCHEN" : "SETTINGS"}
                 </div>
                 <div className="placeholder-sub">NOT WIRED YET // PLACEHOLDER INTERFACE</div>
               </section>

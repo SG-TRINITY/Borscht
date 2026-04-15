@@ -1,10 +1,10 @@
 import "./SideNav.css";
 
-export type NavId = "pot" | "cringe" | "kitchen" | "settings";
+export type NavId = "pot" | "taste" | "kitchen" | "settings";
 
 const NAV_ITEMS: Array<{ id: NavId; label: string; icon: string }> = [
   { id: "pot", label: "THE POT", icon: "/pot.svg" },
-  { id: "cringe", label: "CRINGE INDEX", icon: "/cringe.svg" },
+  { id: "taste", label: "TASTE TEST", icon: "/taste.svg" },
   { id: "kitchen", label: "THE KITCHEN", icon: "/kitchen.svg" },
   { id: "settings", label: "SETTINGS", icon: "/settings.svg" },
 ];
@@ -55,8 +55,6 @@ export default function SideNav(props: {
         <div className="sidenav-footer-bar">
           <div className="sidenav-footer-bar-fill" />
         </div>
-
-        <div className="sidenav-divider" />
 
         <div className="sidenav-logs-label">SYSTEM_LOGS:</div>
         <ul className="sidenav-logs">
