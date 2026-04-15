@@ -65,14 +65,9 @@ If time allows:
 - Replace mock Taste Test lines with streamed model output.
 - Auth and per-user libraries if the product goes multi-tenant.
 
-Get this bad boy up so that we don't have any more db issues between the three of us.
+---
 
-We love Borscht.
-
-© 2026 Cult. of the Soup*
+We love Borscht. \
+@ 2019 Cult. of the Soup*
 
 *Cult. is abbreviation for Culture
-
-## License
-
-Private project unless you add a public license.
