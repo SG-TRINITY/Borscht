@@ -3,6 +3,7 @@ import "./App.css";
 import Footer from "./Footer";
 import Header from "./Header";
 import SideNav, { type NavId } from "./SideNav";
+import Kitchen from "./Kitchen";
 import TasteTest from "./TasteTest";
 
 /** Slider has 10 stops (0–9). Five anchor labels map to heat tiers (mildest → hottest). */
@@ -245,12 +246,12 @@ export default function App() {
                 onClearBuffer={() => setTasteLogCleared(true)}
                 onReinitiateScan={() => setActiveNav("pot")}
               />
+            ) : activeNav === "kitchen" ? (
+              <Kitchen />
             ) : (
               <section className="placeholder">
                 <div className="placeholder-kicker">MODULE</div>
-                <div className="placeholder-title">
-                  {activeNav === "kitchen" ? "THE KITCHEN" : "SETTINGS"}
-                </div>
+                <div className="placeholder-title">SETTINGS</div>
                 <div className="placeholder-sub">NOT WIRED YET // PLACEHOLDER INTERFACE</div>
               </section>
             )}
